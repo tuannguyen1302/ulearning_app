@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utilities/app_colors.dart';
+import '../../../utilities/app_colors.dart';
 
 BoxDecoration appBoxShadow({
   Color color = AppColors.primaryElement,
