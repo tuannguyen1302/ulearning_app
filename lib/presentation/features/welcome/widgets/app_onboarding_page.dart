@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../utilities/app_colors.dart';
-import 'app_box_shadow.dart';
-import 'text_widget.dart';
-
+import '../../sign_in/sign_in_screen.dart';
+import '../../widget/app_box_shadow.dart';
+import '../../widget/text_widget.dart';
 Widget appOnboardingPage(
   PageController pageController, {
   required String imagePath,
@@ -52,13 +51,12 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
           curve: Curves.easeInOutQuad,
         );
       } else {
-        //  context.go(RouteNames.signIn);
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => const SignInScreen(),
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SignInScreen(),
+          ),
+        );
       }
     },
     child: Container(

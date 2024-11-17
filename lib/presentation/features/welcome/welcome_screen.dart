@@ -2,10 +2,11 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'provider/welcome_state.dart';
 import 'widgets/app_onboarding_page.dart';
 
 
-final indexProvider = StateProvider<int>((ref) => 0);
+// final indexProvider = StateProvider<int>((ref) => 0);
 
 class WelcomeScreen extends ConsumerWidget {
   WelcomeScreen({super.key});
@@ -13,7 +14,8 @@ class WelcomeScreen extends ConsumerWidget {
   final PageController _pageController = PageController();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final index = ref.watch(indexProvider);
+    final index = ref.watch(welcomeStateProvider);
+    final refindex = ref.read(welcomeStateProvider.notifier);
     return Container(
       color: Colors.white,
       child: Scaffold(
@@ -25,7 +27,7 @@ class WelcomeScreen extends ConsumerWidget {
             children: [
               PageView(
                 onPageChanged: (value) {
-                  ref.read(indexProvider.notifier).state = value;
+                  refindex.changePage(value);
                 },
                 controller: _pageController,
                 scrollDirection: Axis.horizontal,
