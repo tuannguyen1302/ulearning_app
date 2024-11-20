@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utilities/app_colors.dart';
 import '../sign_up/sign_up_screen.dart';
+import '../widget/app_text_field.dart';
+import '../widget/build_app_bar.dart';
 import '../widget/text_widget.dart';
-import 'widgets/app_bar_sign_in.dart';
-import 'widgets/app_text_field.dart';
 import 'widgets/button_widget.dart';
 import 'widgets/third_party_login.dart';
 
@@ -16,7 +16,7 @@ class SignInScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: appBarSignIn(title: 'Sign In', automaticallyImplyLeading: false),
+      appBar: buildAppbar(title: 'Sign In', automaticallyImplyLeading: false),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

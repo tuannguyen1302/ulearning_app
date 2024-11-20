@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../utilities/app_colors.dart';
-import '../../widget/text_widget.dart';
+import '../../../utilities/app_colors.dart';
+import 'text_widget.dart';
 
 Widget appTextField({
   required String text,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utilities/app_colors.dart';
-import '../../widget/text_widget.dart';
+import '../../../utilities/app_colors.dart';
+import 'text_widget.dart';
 
-AppBar appBarSignIn({
+AppBar buildAppbar({
   String title = '',
   bool automaticallyImplyLeading = true,
 }) {
