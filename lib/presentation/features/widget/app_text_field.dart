@@ -11,7 +11,9 @@ Widget appTextField({
   bool obscureText = false,
   void Function(String value)? func,
   String imagePath = '',
+
 }) {
+
   return Container(
     padding: EdgeInsets.only(left: 25.w, right: 25.w),
     child: Column(
