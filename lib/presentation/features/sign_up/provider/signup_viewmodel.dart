@@ -29,8 +29,8 @@ class SignUpViewModel extends _$SignUpViewModel {
   void onRePasswordChanged(String rePassword) {
     state = state.copyWith(rePassword: rePassword);
   }
-
-  Future<void> handleSignUp( _context) async {
+// ignore: no_leading_underscores_for_local_identifiers
+  Future<void> handleSignUp(   _context) async {
     final userName = state.userName;
     final email = state.email;
     final password = state.password;

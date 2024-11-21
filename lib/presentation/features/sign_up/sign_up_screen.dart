@@ -18,6 +18,7 @@ class SignUpScreen extends ConsumerStatefulWidget {
 }
 
 class _SignUpScreenState extends ConsumerState<SignUpScreen> {
+  // ignore: unused_field
   SignUpViewModel _controller = SignUpViewModel();
 
   @override
