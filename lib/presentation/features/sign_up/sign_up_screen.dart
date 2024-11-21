@@ -11,7 +11,7 @@ import 'provider/signup_viewmodel.dart';
 import 'widgets/button_sign_up.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   ConsumerState<SignUpScreen> createState() => _SignUpScreenState();

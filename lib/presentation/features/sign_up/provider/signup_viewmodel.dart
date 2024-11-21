@@ -30,7 +30,7 @@ class SignUpViewModel extends _$SignUpViewModel {
     state = state.copyWith(rePassword: rePassword);
   }
 
-  Future<void> handleSignUp(BuildContext _context) async {
+  Future<void> handleSignUp( _context) async {
     final userName = state.userName;
     final email = state.email;
     final password = state.password;
@@ -93,7 +93,7 @@ class SignUpViewModel extends _$SignUpViewModel {
           if (credential.user != null) {
             await credential.user?.sendEmailVerification();
             await credential.user?.updateDisplayName(userName);
-            print('=============${credential.user}');
+
             await toastInfo('dang ki thanh cong ');
             Navigator.of(_context).pop();
           }
