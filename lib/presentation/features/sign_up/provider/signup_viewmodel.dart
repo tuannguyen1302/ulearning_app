@@ -90,6 +90,7 @@ class SignUpViewModel extends _$SignUpViewModel {
         try {
           final credential = await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: email, password: password);
+          // print(credential);
           if (credential.user != null) {
             await credential.user?.sendEmailVerification();
             await credential.user?.updateDisplayName(userName);
@@ -97,7 +98,16 @@ class SignUpViewModel extends _$SignUpViewModel {
             await toastInfo('dang ki thanh cong ');
             Navigator.of(_context).pop();
           }
-        } catch (e) {
+        }on FirebaseAuthException catch (e) {
+          if (e.code== 'weak-password') {
+            await toastInfo('Mat khau qua thap');
+          }else if (e.code== 'email-already-in-use') {
+            await toastInfo('Email da ton tai');
+          } else if (e.code=='user-not-found') {
+            await toastInfo('User not found');
+          }
+        }
+        catch (e) {
           if (kDebugMode) {
             print(e.toString());
           }
