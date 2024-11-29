@@ -5,13 +5,12 @@ import '../../../utilities/app_colors.dart';
 import 'text_widget.dart';
 
 Widget appTextField({
-  required String text,
-  required String iconName,
-  required String titleField,
+  required String text, required String iconName, required String titleField,
+
   bool obscureText = false,
   void Function(String value)? func,
   String imagePath = '',
-
+  bool showPassword = false,
 }) {
 
   return Container(
@@ -74,6 +73,8 @@ Widget appTextField({
                   obscureText: obscureText,
                 ),
               ),
+
+
             ],
           ),
         ),
