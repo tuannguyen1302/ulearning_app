@@ -97,10 +97,14 @@ class SignUpViewModel extends _$SignUpViewModel {
             await toastInfo('dang ki thanh cong ');
             Navigator.of(_context).pop();
           }
-        } catch (e) {
-          if (kDebugMode) {
-            print(e.toString());
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'weak-password'){
+            await toastInfo('mat khau qua ngan');
           }
+        } catch (e){
+           if (kDebugMode) {
+             print(e.toString());
+           }
         }
         ref.read(globalLoaderProvider.notifier).setLoaderValue(false);
       },
