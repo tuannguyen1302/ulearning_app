@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "916947089457",
+    "project_id": "urlearning-app",
+    "storage_bucket": "urlearning-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916947089457:android:5b320ac0233a75ea273d10",
+        "android_client_info": {
+          "package_name": "com.example.ulearning_app1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIsS-Ya-ZZ-vFl60yjv2jvzETh8vSxZx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916947089457:android:256bb73b8e12b276273d10",
+        "android_client_info": {
+          "package_name": "tuannvph24745.com.example.ulearning_app1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIsS-Ya-ZZ-vFl60yjv2jvzETh8vSxZx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

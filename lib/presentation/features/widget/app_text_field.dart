@@ -12,6 +12,7 @@ Widget appTextField({
   void Function(String value)? func,
   String imagePath = '',
 
+
 }) {
 
   return Container(
@@ -41,6 +42,7 @@ Widget appTextField({
                 width: 280.w,
                 height: 50.h,
                 child: TextField(
+
                   onChanged: (value) => func!(value),
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
@@ -108,7 +110,7 @@ Widget appImage({
 Widget textUnderline({String text = 'd'}) {
   return GestureDetector(
     onTap: () {
-      //print('ontap');
+      print('ontap');
     },
     child: Text(
       text,

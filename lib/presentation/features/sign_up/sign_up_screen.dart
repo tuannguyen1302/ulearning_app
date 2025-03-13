@@ -57,12 +57,14 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                     ),
                     //Email
                     appTextField(
+
                       text: 'User name ',
                       iconName: 'assets/icons/user.png',
                       titleField: 'Enter your user name ',
                       func: (value) {
                         viewModel.onUsernameChanged(value);
                       },
+
                     ),
                     SizedBox(
                       height: 15.h,
