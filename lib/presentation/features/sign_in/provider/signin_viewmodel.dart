@@ -11,9 +11,15 @@ part 'signin_viewmodel.g.dart';
 
 @riverpod
 class SignInViewModel extends _$SignInViewModel {
-
+  late BuildContext context;
   @override
   SignInState build() => const SignInState();
+
+  // @override
+  // SignInState build(BuildContext context) {
+  //   this.context = context; // Khởi tạo context
+  //   return const SignInState(); // State mặc định
+  // }
 
   void onUserEmailChanged(String email) {
     state = state.copyWith(email: email);
@@ -65,9 +71,11 @@ class SignInViewModel extends _$SignInViewModel {
         return;
       }
       if (!credentials.user!.emailVerified) {
-        await toastInfo('you must verify your email address first');
+        await toastInfo('Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email.');
+        ref.read(globalLoaderProvider.notifier).setLoaderValue(false);
         return;
       }
+
       final user = credentials.user;
       if (user != null) {
         final displayName = user.displayName;
@@ -86,12 +94,12 @@ class SignInViewModel extends _$SignInViewModel {
         await toastInfo('login successfully');
         //print('login successfully');
 
-        await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
-            ),
+        await Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
+        //
+        // await Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
             } else {
         await toastInfo('login failed');
       }

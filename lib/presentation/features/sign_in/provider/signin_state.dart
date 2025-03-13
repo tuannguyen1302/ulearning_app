@@ -15,3 +15,4 @@ class SignInState with _$SignInState {
   factory SignInState.fromJson(Map<String, dynamic> json) =>
       _$SignInStateFromJson(json);
 }
+
