@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -110,7 +111,9 @@ Widget appImage({
 Widget textUnderline({String text = 'd'}) {
   return GestureDetector(
     onTap: () {
-      print('ontap');
+      if (kDebugMode) {
+        print('ontap');
+      }
     },
     child: Text(
       text,

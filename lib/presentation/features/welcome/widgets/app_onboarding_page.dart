@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../constants/constants.dart';
+import '../../../../global.dart';
 import '../../../../utilities/app_colors.dart';
-import '../../sign_in/sign_in_screen.dart';
 import '../../widget/app_box_shadow.dart';
 import '../../widget/text_widget.dart';
 Widget appOnboardingPage(
@@ -51,12 +52,14 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
           curve: Curves.easeInOutQuad,
         );
       } else {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const SignInScreen(),
-          ),
-        );
+        Global.storageService.setBool(Constants.STORAGE_DEVICE_OPEN_FIRST_KEY, true);
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => const SignInScreen(),
+        //   ),
+        // );
+        Navigator.pushNamed(context, '/signIn');
       }
     },
     child: Container(

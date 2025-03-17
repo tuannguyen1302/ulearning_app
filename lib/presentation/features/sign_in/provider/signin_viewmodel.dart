@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../../../constants/constants.dart';
+import '../../../../global.dart';
 import '../../../../utilities/popup_messages.dart';
 import '../../../global_loader/global_loader.dart';
 import '../../home/home_screen.dart';
@@ -89,15 +91,12 @@ class SignInViewModel extends _$SignInViewModel {
         userEntity.email = email;
         userEntity.openId = id;
         userEntity.type = 1;
-        await asyncPostAllData(userEntity);
+        await asyncPostAllData(userEntity,context);
 
         await toastInfo('login successfully');
         //print('login successfully');
 
-        await Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
-        );
+
         //
         // await Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
             } else {
@@ -124,5 +123,18 @@ class SignInViewModel extends _$SignInViewModel {
     ref.read(globalLoaderProvider.notifier).setLoaderValue(false);
   }
 
-  Future<void> asyncPostAllData(UserEntity userEntity) async {}
+  Future<void> asyncPostAllData(UserEntity userEntity, BuildContext context) async {
+
+    try {
+      await Global.storageService.setString(Constants.STORAGE_USER_PROFILE_KEY, '123');
+      await Global.storageService.setString(Constants.STORAGE_USER_TOKEN_KEY, '123456');
+
+      await Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreen()), (route) => false);
+    }
+    catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
 }

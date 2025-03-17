@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utilities/app_colors.dart';
 import '../../global_loader/global_loader.dart';
-import '../sign_up/sign_up_screen.dart';
 import '../widget/app_text_field.dart';
 import '../widget/build_app_bar.dart';
 import '../widget/text_widget.dart';
@@ -20,7 +19,7 @@ class SignInScreen extends ConsumerStatefulWidget {
 
 class _SignInScreenState extends ConsumerState<SignInScreen> {
 
-  var _controller = SignInViewModel();
+  late var _controller = SignInViewModel();
 
 
   @override
@@ -108,12 +107,13 @@ final viewmodel = ref.read(signInViewModelProvider.notifier);
                   isLogin: false,
                   context: context,
                   func: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SignUpScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const SignUpScreen(),
+                    //   ),
+                    // );
+                    Navigator.pushNamed(context, '/signUp');
                   },
                 ),
               ),
